@@ -20,10 +20,21 @@
             <img src="img/Logo.png" alt="Logo" id="logo">
             <h1>Campo Minato</h1>
         </div>
-        <button type="button" id="button">play</button>
+        <div class="play">
+          <select  id="difficulty">
+            <option value="10" selected>Easy</option>
+            <option value="9">Medium</option>
+            <option value="7">Hard</option>
+          </select>
+          <button type="button" id="button">Play</button>
+          <button type="button" id="reset">Reset</button>
+        </div>
     </header>
     <main>
-        <div id="grid"></div>
+        <div id="start-play">
+            <h1>PREMI PLAY PER INIZIARE</h1>
+        </div>
+        <div class="disp-none grid"></div>
     </main>
     <footer>
         <div>Made whit &#128420; by <a href="#">Boolean</a></div>

@@ -39,14 +39,13 @@ Aggiungere una select accanto al bottone di generazione, che fornisca una scelta
 
 //* RECUPERO ELEMENTI Dal DOM
 
-const grid = document.getElementById('grid');
+const grid = document.querySelector('.grid');
+const startScreen = document.getElementById('start-play');
 const button = document.getElementById('button');
+const reset = document.getElementById('reset');
+const select = document.getElementById('difficulty');
 
 
-//* INIZIALIZZO VALORI
-const row = 10;
-const cols = 10;
-const totalCells = row * cols ;
 
 //* INIZIALIZZAZIONE VALIDAZIONE
 let isGenerated = false;
@@ -54,12 +53,29 @@ let isGenerated = false;
 // *CREO LOGICA AD AZIONAMENTO PULSANTE
 
 button.addEventListener('click' , () => {
+
+//* INIZIALIZZO VALORI
+const square = parseInt(select.value);
+const totalCells = square * square ;
+grid.classList.remove('disp-none');
+startScreen.classList.add('disp-none');
+
 //*VALIDAZIONE
 if(!isGenerated){
 isGenerated = true;
 for(let i = 1 ; i <= totalCells ; i++) {
 
     const cell =  createCellNumber(i);
+    //*GESTINSCO DIFFICOLTA
+    if(square === 7){
+        cell.classList.add('hard');
+    }
+    else if (square === 9){
+        cell.classList.add('medium');
+    }
+    else {
+        cell.classList.add('easy');
+    }
     
     //* AGGIUNGO CLASSE A CLICK DELLA CELLA
     cell.addEventListener('click' , () =>{
@@ -73,4 +89,6 @@ for(let i = 1 ; i <= totalCells ; i++) {
 }
 });
 
-
+reset.addEventListener('click' , () => {
+    window.location.reload();
+});
