@@ -18,3 +18,68 @@
 body{
     font-family: sans-serif;
 }
+
+
+/* HEADER */
+header{
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+}
+
+#left-header {
+    display: flex;
+    align-items: center;
+}
+
+#logo{
+ margin: 0 20px;
+}
+
+header button{
+    padding: 5px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+/* MAIN */
+
+main{
+    background-color: aquamarine;
+    height: calc(100vh - 180px);
+    padding: 100px 0 ;
+}
+
+#grid{
+    height: 500px;
+    width:  500px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;   
+    border: 1px solid black;
+}
+
+.cell {
+    border: 1px solid black;
+    height: calc(100% / 10);
+    width: calc(100% / 10);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cell.clicked{
+    background-color: blue;
+}
+
+/* FOOTER */
+
+footer{
+    height: 80px;
+    line-height: 80px;
+    vertical-align: middle;
+    padding : 0 30px;
+}
