@@ -39,16 +39,15 @@ Aggiungere una select accanto al bottone di generazione, che fornisca una scelta
 
 //* RECUPERO ELEMENTI Dal DOM
 
-const grid = document.querySelector('.grid');
+const grid = document.getElementById('grid');
 const startScreen = document.getElementById('start-play');
 const button = document.getElementById('button');
-const reset = document.getElementById('reset');
 const select = document.getElementById('difficulty');
 
 
 
 //* INIZIALIZZAZIONE VALIDAZIONE
-let isGenerated = false;
+let isPlaying = false;
 
 // *CREO LOGICA AD AZIONAMENTO PULSANTE
 
@@ -59,22 +58,35 @@ const square = parseInt(select.value);
 const totalCells = square * square ;
 grid.classList.remove('disp-none');
 startScreen.classList.add('disp-none');
+grid.innerHTML= '';
+let choise = true;
 
-//*VALIDAZIONE
-if(!isGenerated){
-isGenerated = true;
+//*VALIDAZIONE RESET
+if(isPlaying){
+    choise = confirm('Sei sicuro?');
+    if (choise){
+
+        isPlaying = false;
+        startScreen.classList.remove('disp-none');
+        grid.classList.add('disp-none');
+        button.innerText = 'Play';
+        return;
+    }   
+}
+
+isPlaying = true;
 for(let i = 1 ; i <= totalCells ; i++) {
-
+    button.innerText = 'Ricomincia';
     const cell =  createCellNumber(i);
     //*GESTINSCO DIFFICOLTA
     if(square === 7){
-        cell.classList.add('hard');
+        grid.classList.add('hard');
     }
     else if (square === 9){
-        cell.classList.add('medium');
+        grid.classList.add('medium');
     }
     else {
-        cell.classList.add('easy');
+        grid.classList.add('easy');
     }
     
     //* AGGIUNGO CLASSE A CLICK DELLA CELLA
@@ -86,9 +98,4 @@ for(let i = 1 ; i <= totalCells ; i++) {
     grid.appendChild(cell); 
 
 }
-}
-});
-
-reset.addEventListener('click' , () => {
-    window.location.reload();
 });

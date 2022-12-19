@@ -57,14 +57,13 @@ main{
     padding: 100px 0 ;
 }
 
-.grid{
+#grid{
     height: 500px;
     width:  500px;
     margin: 0 auto;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;   
-    border: 1px solid black;
     color: aliceblue;
 }
 
@@ -89,17 +88,17 @@ main{
     background-color: black;
 }
 
-.cell.easy {
+#grid.easy .cell {
     height: calc(100% / 10);
     width: calc(100% / 10); 
 }
 
-.cell.medium {
+#grid.medium .cell {
     height: calc(100% / 9);
     width: calc(100% / 9);
 }
 
-.cell.hard {
+#grid.hard .cell {
     height: calc(100% / 7);
     width: calc(100% / 7);
 }
